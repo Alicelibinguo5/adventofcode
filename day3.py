@@ -416,12 +416,3 @@ print("result for part 2 with input 2")
 
 sum_priorities_part1(rucksacks2)
 sum_priorities_part2(rucksacks2)
-
-
-
-
-
-
-
-
-
