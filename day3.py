@@ -37,14 +37,11 @@
 #
 
 def get_priority_map():
-
     # Generate lowercase Mapping
     lowercase_map = {chr(i+96):i for i in range(1,27)}
-    # print(lowercase_map)
 
     # Generate UPPERCASE Mapping
     uppercase_map = {chr(i+64):i+26 for i in range(1,27)}
-    # print(uppercase_map)
 
     return {**lowercase_map, **uppercase_map}
 
@@ -83,9 +80,7 @@ def sum_priorities_part2(rucksacks):
 
     i = 0
     while i <= (len(rucksacks) - 3):
-        # print(i)
         common_char = ""
-        #dedup 1st compartment before finding the common letter
         for char in list(set(rucksacks[i])):
             if (char in rucksacks[i+1]) & (char in rucksacks[i+2]):
                 common_char += char if char not in common_char else ""
@@ -105,11 +100,9 @@ PmmdzqPrVvPwwTWBwg
 wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw"""
+
 sum_priorities_part1(rucksacks1)
 sum_priorities_part2(rucksacks1)
-
-
-
 
 rucksacks2 ="""dtddvvhwttHJhwdhJPddhwJGppmGjgpQgTjQplQpTljwpg
 BfzSzRSVVMVNRMDDNBSNSnfBmbrglGQbmNpQggFjpgpbQlQb
