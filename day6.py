@@ -33,27 +33,28 @@
 #part 1
 # How many characters need to be processed before the first start-of-packet marker is detected?
 
-#part 2
-def tuning_trouble(input, start_of_packet=4):
-    if len(input) <=3:
-        return  0
-    i = 0
-    # start_of_packet = 4
-    while start_of_packet <= len(input):
-        chars= input[i:start_of_packet]
+
+def tuning_trouble(input, end=4):
+    if len(input) < end:
+        return 0
+    start = 0
+    # end = 4
+    while end <= len(input):
+        chars = input[start:end]
         if len(chars) == len(set(chars)):
             break
-        i += 1
-        start_of_packet += 1
+            
+        start += 1
+        end += 1
 
-    return start_of_packet
+    return end
 
 # input = 'nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg'
 with open("day6.txt", 'r') as file:
     input = file.read()
-start_of_packet = tuning_trouble(input)
-print(start_of_packet)
-#
+end = tuning_trouble(input)
+print(end)
+#Part 2
 # A start-of-message marker is just like a start-of-packet marker, except it consists of 14 distinct characters rather than 4.
 #
 # Here are the first positions of start-of-message markers for all of the above examples:
@@ -68,5 +69,5 @@ print(start_of_packet)
 
 # input = 'mjqjpqmgbljsphdztnvjfqwrcgsmlb'
 
-start_of_packet = tuning_trouble(input, start_of_packet=14)
-print(start_of_packet)
+end = tuning_trouble(input, end=14)
+print(end)
